@@ -30,11 +30,10 @@ public class NewtonDemo {
 	private static Complex[] ROOTS;
 
 	public void run() {
-//		for (ROOT = 2; ROOT <= 8; ROOT++) {
-		ROOT = 7;
-		ROOTS = Complex.ONE.nroots(ROOT);
-		exportImage();
-//		}
+		for (ROOT = 2; ROOT <= 8; ROOT++) {
+			ROOTS = Complex.ONE.nroots(ROOT);
+			exportImage();
+		}
 	}
 
 	private int[] generateRgbs() {
@@ -105,7 +104,8 @@ public class NewtonDemo {
 			directory.mkdir();
 		}
 
-		String fname = directoryPath + File.separator + "ROOT" + ROOT + "_LukaMesaric.png";
+		String fname = String.format("%s%sRoot%d_%s_LukaMesaric.png", directoryPath, File.separator, ROOT,
+				directoryPath);
 
 		try {
 			ImageIO.write(img, "png", new File(fname));
